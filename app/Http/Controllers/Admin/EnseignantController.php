@@ -13,7 +13,7 @@ class EnseignantController extends Controller
         $enseignants = Enseignant::get()
             ->where('actif', true);
 
-        return view('admin.enseignants.index', compact('enseignants'));
+        return view('admin.enseignants', compact('enseignants'));
     }
 
 

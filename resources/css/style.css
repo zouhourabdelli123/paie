@@ -1,0 +1,171 @@
+
+/* Améliorations CSS pour la sidebar */
+.sidenav {
+  box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidenav .nav-link {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem 0.25rem;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease-in-out;
+  position: relative;
+  color: #67748e;
+}
+
+.sidenav .nav-link:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  transform: translateX(5px);
+}
+
+.sidenav .nav-link.active {
+  background-color: rgba(233, 236, 239, 0.3);
+  font-weight: 600;
+  color: #344767;
+}
+
+.sidenav .nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(195deg, #42424a 0%, #191919 100%);
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.sidenav .icon {
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidenav .nav-link:hover .icon {
+  transform: scale(1.1);
+}
+
+.sidenav .nav-link.active .icon {
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.11), 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+}
+
+.sidenav h6 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  color: #67748e;
+}
+
+.sidenav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidenav::-webkit-scrollbar-track {
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.sidenav::-webkit-scrollbar-thumb {
+  background: #dee2e6;
+  border-radius: 10px;
+}
+
+.sidenav::-webkit-scrollbar-thumb:hover {
+  background: #adb5bd;
+}
+
+.sidenav-footer {
+  padding: 1rem 0;
+}
+
+.sidenav-footer .card-background {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* Animation au chargement */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.nav-item {
+  animation: slideInFromLeft 0.4s ease-out backwards;
+}
+
+.nav-item:nth-child(1) { animation-delay: 0.05s; }
+.nav-item:nth-child(2) { animation-delay: 0.1s; }
+.nav-item:nth-child(3) { animation-delay: 0.15s; }
+.nav-item:nth-child(4) { animation-delay: 0.2s; }
+.nav-item:nth-child(5) { animation-delay: 0.25s; }
+.nav-item:nth-child(6) { animation-delay: 0.3s; }
+
+/* Badge effet pour les items actifs */
+.nav-link.active .icon i {
+  animation: iconPulse 2s infinite ease-in-out;
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Effet de ripple au clic */
+.nav-link {
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.nav-link:active::after {
+  width: 200px;
+  height: 200px;
+}
+
+/* Amélioration du header */
+.sidenav-header {
+  padding: 1rem 1.5rem;
+}
+
+.sidenav-header .navbar-brand {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.sidenav-header .navbar-brand:hover {
+  transform: scale(1.02);
+}
+
+.navbar-brand-img {
+  max-height: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.sidenav-header .navbar-brand:hover .navbar-brand-img {
+  transform: rotate(5deg);
+}
