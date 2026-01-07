@@ -1,56 +1,69 @@
 @extends('dashbaord.main')
 @section('content')
-    <div class="col-lg-12 pt-2">
-        <div class="card">
-            <div class="card-header pb-0">
-                <div class="row">
-                    <div class="col-lg-6 col-7">
-                        <h6>Projects</h6>
-                        <p class="text-sm mb-0">
-                            <i class="fa fa-check text-info" aria-hidden="true"></i>
-                            <span class="font-weight-bold ms-1">30 done</span> this month
-                        </p>
-                    </div>
-                    <div class="col-lg-6 col-5 my-auto text-end">
-                        <div class="dropdown float-lg-end pe-4">
-                            <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-ellipsis-v text-secondary"></i>
-                            </a>
-                            <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
-                                <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                                <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                                <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a>
-                                </li>
-                            </ul>
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    <div class="container-fluid pt-3">
+        <div class="card shadow-lg border-0 overflow-hidden modern-card">
+            <div class="card-header py-4 border-bottom-0">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-md-7">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-badge me-3">
+                                <i class="fa fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-dark mb-1 font-weight-bold">
+                                    Gestion des Projets
+                                </h3>
+                                <p class="text-muted mb-0">
+                                    <i class="fa fa-check-circle me-1 text-success"></i>
+                                    <span class="font-weight-bold text-dark">30 projets terminés</span> ce mois-ci
+                                </p>
+                            </div>
                         </div>
+                    </div>
+                    <div class="col-lg-4 col-md-5 text-end mt-3 mt-md-0">
+                        <button class="btn btn-outline-orange btn-modern me-2">
+                            <i class="fa fa-filter me-1"></i> Filtrer
+                        </button>
+                        <button class="btn btn-orange btn-modern">
+                            <i class="fa fa-plus me-1"></i> Nouveau
+                        </button>
                     </div>
                 </div>
             </div>
-            <div class="card-body px-0 pb-2">
+
+            <!-- Table Body -->
+            <div class="card-body px-4 pb-4 pt-3">
                 <div class="table-responsive">
-                    <table id="projectsTable" class="table align-items-center mb-0">
+                    <table id="projectsTable" class="table align-items-center mb-0 modern-table">
                         <thead>
                             <tr>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Companies
+                                <th class="text-uppercase text-secondary font-weight-bolder ps-2">
+                                    <i class="fa fa-building me-2 text-orange"></i>Entreprises
                                 </th>
-                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Members
+                                <th class="text-uppercase text-secondary font-weight-bolder ps-2">
+                                    <i class="fa fa-users me-2 text-orange"></i>Membres
                                 </th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Budget</th>
-                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                    Completion</th>
+                                <th class="text-center text-uppercase text-secondary font-weight-bolder">
+                                    <i class="fa fa-dollar-sign me-2 text-orange"></i>Budget
+                                </th>
+                                <th class="text-center text-uppercase text-secondary font-weight-bolder">
+                                    <i class="fa fa-chart-line me-2 text-orange"></i>Achèvement
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr class="hover-row">
                                 <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
+                                    <div class="d-flex px-2 py-2 align-items-center">
+                                        <div class="icon-wrapper">
                                             <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm me-3"
                                                 alt="xd">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Soft UI XD Version</h6>
+                                            <h6 class="mb-0 font-weight-bold project-title">Soft UI XD Version</h6>
+                                            <span class="text-xs text-muted">Design System</span>
                                         </div>
                                     </div>
                                 </td>
@@ -74,32 +87,29 @@
                                         </a>
                                     </div>
                                 </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> $14,000 </span>
+                                <td class="align-middle text-center">
+                                    <span class="badge badge-modern bg-orange-soft text-orange">$14,000</span>
                                 </td>
                                 <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                                <span class="text-xs font-weight-bold">60%</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-info w-60" role="progressbar"
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <span class="me-2 text-sm font-weight-bold text-orange">60%</span>
+                                        <div class="progress progress-modern">
+                                            <div class="progress-bar bg-orange" style="width: 60%" role="progressbar"
                                                 aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="hover-row">
                                 <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
+                                    <div class="d-flex px-2 py-2 align-items-center">
+                                        <div class="icon-wrapper">
                                             <img src="../assets/img/small-logos/logo-atlassian.svg"
                                                 class="avatar avatar-sm me-3" alt="atlassian">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Add Progress Track</h6>
+                                            <h6 class="mb-0 font-weight-bold project-title">Add Progress Track</h6>
+                                            <span class="text-xs text-muted">Feature Development</span>
                                         </div>
                                     </div>
                                 </td>
@@ -115,32 +125,29 @@
                                         </a>
                                     </div>
                                 </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> $3,000 </span>
+                                <td class="align-middle text-center">
+                                    <span class="badge badge-modern bg-warning-soft text-warning">$3,000</span>
                                 </td>
                                 <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                                <span class="text-xs font-weight-bold">10%</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-info w-10" role="progressbar"
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <span class="me-2 text-sm font-weight-bold text-warning">10%</span>
+                                        <div class="progress progress-modern">
+                                            <div class="progress-bar bg-warning" style="width: 10%" role="progressbar"
                                                 aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr class="hover-row">
                                 <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
+                                    <div class="d-flex px-2 py-2 align-items-center">
+                                        <div class="icon-wrapper">
                                             <img src="../assets/img/small-logos/logo-slack.svg"
-                                                class="avatar avatar-sm me-3" alt="team7">
+                                                class="avatar avatar-sm me-3" alt="slack">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Fix Platform Errors</h6>
+                                            <h6 class="mb-0 font-weight-bold project-title">Fix Platform Errors</h6>
+                                            <span class="text-xs text-muted">Bug Fixing</span>
                                         </div>
                                     </div>
                                 </td>
@@ -156,150 +163,20 @@
                                         </a>
                                     </div>
                                 </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> Not set </span>
+                                <td class="align-middle text-center">
+                                    <span class="badge badge-modern bg-secondary-soft text-secondary">Non fixé</span>
                                 </td>
                                 <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                                <span class="text-xs font-weight-bold">100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-success w-100" role="progressbar"
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <span class="me-2 text-sm font-weight-bold text-success">100%</span>
+                                        <div class="progress progress-modern">
+                                            <div class="progress-bar bg-success" style="width: 100%" role="progressbar"
                                                 aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img src="../assets/img/small-logos/logo-spotify.svg"
-                                                class="avatar avatar-sm me-3" alt="spotify">
-                                        </div>
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Launch our Mobile App</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                                            <img src="../assets/img/team-4.jpg" alt="user1">
-                                        </a>
-                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Romina Hadid">
-                                            <img src="../assets/img/team-3.jpg" alt="user2">
-                                        </a>
-                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Alexander Smith">
-                                            <img src="../assets/img/team-4.jpg" alt="user3">
-                                        </a>
-                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                            <img src="../assets/img/team-1.jpg" alt="user4">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> $20,500 </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                                <span class="text-xs font-weight-bold">100%</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-success w-100" role="progressbar"
-                                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img src="../assets/img/small-logos/logo-jira.svg"
-                                                class="avatar avatar-sm me-3" alt="jira">
-                                        </div>
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Add the New Pricing Page</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                                            <img src="../assets/img/team-4.jpg" alt="user5">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> $500 </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                                <span class="text-xs font-weight-bold">25%</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-info w-25" role="progressbar"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="25"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="d-flex px-2 py-1">
-                                        <div>
-                                            <img src="../assets/img/small-logos/logo-invision.svg"
-                                                class="avatar avatar-sm me-3" alt="invision">
-                                        </div>
-                                        <div class="d-flex flex-column justify-content-center">
-                                            <h6 class="mb-0 text-sm">Redesign New Online Shop</h6>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="avatar-group mt-2">
-                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Ryan Tompson">
-                                            <img src="../assets/img/team-1.jpg" alt="user6">
-                                        </a>
-                                        <a href="javascript:;" class="avatar avatar-xs rounded-circle"
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Jessica Doe">
-                                            <img src="../assets/img/team-4.jpg" alt="user7">
-                                        </a>
-                                    </div>
-                                </td>
-                                <td class="align-middle text-center text-sm">
-                                    <span class="text-xs font-weight-bold"> $2,000 </span>
-                                </td>
-                                <td class="align-middle">
-                                    <div class="progress-wrapper w-75 mx-auto">
-                                        <div class="progress-info">
-                                            <div class="progress-percentage">
-                                                <span class="text-xs font-weight-bold">40%</span>
-                                            </div>
-                                        </div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-info w-40" role="progressbar"
-                                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="40"></div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                     
                         </tbody>
                     </table>
                 </div>
